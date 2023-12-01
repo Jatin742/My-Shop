@@ -25,7 +25,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
                     <Rating value={productRating} readOnly />
                 </div>
                 <div>{data.reviews.length}</div>
-                <div className="font-semibold">{formatPrice(data.price * 60)}</div>
+                <div className="font-semibold">{formatPrice(data.price)}</div>
             </div>
         </div>
     );
