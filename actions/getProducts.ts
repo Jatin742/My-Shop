@@ -13,7 +13,8 @@ export default async function getProducts(params: IProductParams) {
             searchString = '';
         }
         let query: any = {};
-
+        console.log(searchString);
+        
         if (category) {
             query.category = category;
         }
@@ -26,12 +27,14 @@ export default async function getProducts(params: IProductParams) {
                             contains: searchString,
                             mode: 'insensitive',
                         },
+                    },
+                    {
                         description: {
                             contains: searchString,
                             mode: 'insensitive',
-                        }
-                    }
-                ]
+                        },
+                    },
+                ],
             },
             include: {
                 reviews: {
@@ -40,10 +43,11 @@ export default async function getProducts(params: IProductParams) {
                     },
                     orderBy: {
                         createdAt: 'desc',
-                    }
-                }
-            }
-        })
+                    },
+                },
+            },
+        });
+
         return products;
     } catch (error: any) {
         throw new Error(error);
