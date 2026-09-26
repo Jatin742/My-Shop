@@ -11,7 +11,7 @@ interface ProductCardProps {
 }
 const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
     const router = useRouter();
-    console.log("Firebase image:", data.images[0].image);
+    // console.log("Firebase image:", data.images[0].image);
     const productRating = data.reviews.reduce((acc: number, item: any) => item.rating + acc, 0) / data.reviews.length;
     return (
         <div onClick={() => router.push(`/product/${data.id}`)} className="col-span-1 cursor-pointer border-[1.2px] border-slate-200 bg-slate-50 rounded-sm p-2 transition hover:scale-105 text-center text-sm">
